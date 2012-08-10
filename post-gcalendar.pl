@@ -1,7 +1,7 @@
 #!/usr/bin/perl
-# last updated : 2012/08/10 15:52:36 JST
+# last updated : 2012/08/10 16:01:25 JST
 #
-#
+# google calendar にログをポストするスクリプト。
 #
 
 use strict;
@@ -53,7 +53,7 @@ if (-e $yaml) {
 }
 
 
-
+# option check.
 if ($conf_name) { # 定型ファイルから読み込み。。
   &read_schedule_file;
 } elsif ($Calendar_name) {
