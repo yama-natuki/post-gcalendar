@@ -1,5 +1,5 @@
 #!/usr/bin/perl
-# last updated : 2012/08/10 15:39:18 JST
+# last updated : 2012/08/10 15:42:23 JST
 #
 #
 #
@@ -34,6 +34,7 @@ GetOptions(
 		   'config=s'   => \$conf_name,
 		  );
 
+# set account.
 my $yaml = file(File::HomeDir->my_home, $conf_file);
 print $yaml, "\n";
 if (-e $yaml) {
@@ -42,11 +43,7 @@ if (-e $yaml) {
   if ( $p != 600) {
 	chmod( 0600, $yaml);
   }
-  #  print $p, "\n";
   &conf_set;
-  #  print $ID, "\n";
-  #  print $pass, "\n";
-  #  &add_schedule;
 } else {
   print "設定ファイルがありません\n";
   &input_password;
