@@ -1,18 +1,18 @@
 #!/usr/bin/perl
-# last updated : 2012/08/10 15:42:23 JST
+# last updated : 2012/08/10 15:47:22 JST
 #
 #
 #
 
 use strict;
 eval ("use Net::Google::Calendar"); die "[err] Net::Google::Calendar is Not Install.\n" if $@;
-use Crypt::Simple passphrase => 'pass phrase';
-use YAML;
+eval ("use Crypt::Simple;"); die "[err] Crypt::Simple is Not Install.\n" if $@;
+eval ("use YAML;"); die "[err] YAML module is Not Install.\n" if $@;
 use Getopt::Long;
 use Pod::Usage 'pod2usage';
 use Path::Class;
-use File::HomeDir;
-use Term::ReadKey;
+eval ("use File::HomeDir;"); die "[err] File::HomeDir module is Not Install.\n" if $@;
+eval ("use Term::ReadKey;"); die "[err] Term::ReadKey module is Not Install.\n" if $@;
 use utf8;
 
 binmode STDOUT, ":utf8";
