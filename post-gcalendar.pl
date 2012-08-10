@@ -1,5 +1,5 @@
 #!/usr/bin/perl
-# last updated : 2012/08/10 16:01:25 JST
+# last updated : 2012/08/10 16:10:00 JST
 #
 # google calendar にログをポストするスクリプト。
 #
@@ -45,7 +45,7 @@ if (-e $yaml) {
   }
   &conf_set;
 } else {
-  print "設定ファイルがありません\n";
+  print "Not account YAML file.\n";
   &input_password;
   my $yml_hash = {account => $ID, password => encrypt($pass)};
   YAML::DumpFile($yaml, $yml_hash);
@@ -60,24 +60,21 @@ if ($conf_name) { # 定型ファイルから読み込み。。
   if ($g_title) {
 	if ($g_contents) {
 	  if ($g_status) {
-#		&conf_set;
 		&add_schedule;
 	  } else {
-		print "Statusがありません\n";
+		print "Not Status.\n";
 		exit;
 	  }
 	} else {
-	  print "本文がありません\n";
+	  print "not contents.\n";
 	  exit;
 	}
   } else {
-	print "タイトルがありません\n";
+	print "Not Title.\n";
 	exit;
   }
 } else {
   pod2usage();
-#  print "オプションか設定ファイルを指定してください\n";
-#  exit;
 }
 
 
@@ -118,10 +115,10 @@ sub read_schedule_file {
 }
 
 sub add_schedule {
-  print "Google Calendar に接続します\n";
+  print "Google Calendar to connecting.\n";
   my $cal = Net::Google::Calendar->new;
   $cal->login($ID, $pass) or die $@;
-  print "接続成功。\n";
+  print "connect\n";
 
   my $Calendar;
   for ($cal->get_calendars) {
@@ -129,13 +126,13 @@ sub add_schedule {
   }
   $cal->set_calendar($Calendar);
 
-  print "\nスケジュールを書き込みます。\n";
+  print "\nwriting to schedule...\n";
   my $entry = Net::Google::Calendar::Entry->new();
   $entry->title($g_title);
   $entry->content($g_contents);
   $entry->status($g_status);
   $entry->when(DateTime->now, DateTime->now );
-  print "\n終了します。\n";
+  print "\nsucceed.\n";
   $cal->add_entry($entry);
 }
 
