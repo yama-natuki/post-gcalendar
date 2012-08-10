@@ -1,5 +1,5 @@
 #!/usr/bin/perl
-# last updated : 2012/08/10 15:47:22 JST
+# last updated : 2012/08/10 15:52:36 JST
 #
 #
 #
@@ -12,7 +12,7 @@ use Getopt::Long;
 use Pod::Usage 'pod2usage';
 use Path::Class;
 eval ("use File::HomeDir;"); die "[err] File::HomeDir module is Not Install.\n" if $@;
-eval ("use Term::ReadKey;"); die "[err] Term::ReadKey module is Not Install.\n" if $@;
+use Term::ReadKey;
 use utf8;
 
 binmode STDOUT, ":utf8";
@@ -88,7 +88,7 @@ sub input_password {
   print "Google Account : ";
   Term::ReadKey::ReadMode "normal";
   chomp( $ID = ReadLine 0 );
-  print "you typed '$ID'\n";
+  print "\n";
 
   print "enter your password : ";
   Term::ReadKey::ReadMode "noecho";
