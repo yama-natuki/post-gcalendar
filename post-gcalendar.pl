@@ -1,5 +1,5 @@
 #!/usr/bin/perl
-# last updated : 2012/08/10 16:35:15 JST
+# last updated : 2012/08/10 16:42:04 JST
 #
 # google calendar にログをポストするスクリプト。
 #
@@ -92,6 +92,7 @@ sub input_password {
   print "enter your password : ";
   Term::ReadKey::ReadMode "noecho";
   chomp( $pass = ReadLine 0 );
+  Term::ReadKey::ReadMode "restore";
 }
 
 sub conf_set {
