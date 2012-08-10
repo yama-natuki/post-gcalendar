@@ -1,5 +1,5 @@
 #!/usr/bin/perl
-# last updated : 2012/08/10 16:24:56 JST
+# last updated : 2012/08/10 16:35:15 JST
 #
 # google calendar にログをポストするスクリプト。
 #
@@ -50,6 +50,7 @@ if (-e $yaml) {
   my $yml_hash = {account => $ID, password => encrypt($pass)};
   YAML::DumpFile($yaml, $yml_hash);
   chmod( 0600, $yaml);
+  print "created $yaml file.\n"
 }
 
 
@@ -91,8 +92,6 @@ sub input_password {
   print "enter your password : ";
   Term::ReadKey::ReadMode "noecho";
   chomp( $pass = ReadLine 0 );
-  Term::ReadKey::ReadMode "restore";
-  print "\nyou typed '$pass'\n";
 }
 
 sub conf_set {
@@ -106,9 +105,9 @@ sub read_schedule_file {
   if ( -e $conf_file) {
 	my $cyaml = YAML::LoadFile($conf_file) or die "$yaml: $!";
 	$Calendar_name = $cyaml->{Calendar};
-	$g_title = $cyaml->{Title};
-	$g_contents = $cyaml->{Contents};
-	$g_status = $cyaml->{status};
+	$g_title	   = $cyaml->{Title};
+	$g_contents	   = $cyaml->{Contents};
+	$g_status	   = $cyaml->{status};
   } else {
 	print "Not Calendar FILE.\n";
 	exit;
@@ -145,7 +144,7 @@ post-gcalendar - POST schedule to Google Calendar
 
 =head1 SYNOPSIS
 
-  $ post-gcalendar -config [template FILE NAME]
+  $ post-gcalendar -config [template YAML file]
   $ post-gcalendar --calendar "" --title "" 
                      --contents "" --status ""
 
