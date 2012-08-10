@@ -1,5 +1,5 @@
 #!/usr/bin/perl
-# last updated : 2012/08/10 16:13:48 JST
+# last updated : 2012/08/10 16:24:56 JST
 #
 # google calendar にログをポストするスクリプト。
 #
@@ -56,6 +56,7 @@ if (-e $yaml) {
 # option check.
 if ($conf_name) { # 定型ファイルから読み込み。。
   &read_schedule_file;
+  &add_schedule;
 } elsif ($Calendar_name) {
   if ($g_title) {
 	if ($g_contents) {
@@ -115,7 +116,7 @@ sub read_schedule_file {
 }
 
 sub add_schedule {
-  print "Google Calendar to connecting.\n";
+  print "Google Calendar to connecting....\n";
   my $cal = Net::Google::Calendar->new;
   $cal->login($ID, $pass) or die $@;
   print "connect\n";
@@ -144,7 +145,7 @@ post-gcalendar - POST schedule to Google Calendar
 
 =head1 SYNOPSIS
 
-  $ post-gcalendar -cinfig [template FILE NAME]
+  $ post-gcalendar -config [template FILE NAME]
   $ post-gcalendar --calendar "" --title "" 
                      --contents "" --status ""
 
