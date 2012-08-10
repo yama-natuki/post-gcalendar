@@ -1,5 +1,5 @@
 #!/usr/bin/perl
-# last updated : 2012/08/10 15:07:58 JST
+# last updated : 2012/08/10 15:39:18 JST
 #
 #
 #
@@ -37,13 +37,16 @@ GetOptions(
 my $yaml = file(File::HomeDir->my_home, $conf_file);
 print $yaml, "\n";
 if (-e $yaml) {
-#  my @st = stat $yaml;
-#  my $p = substr((sprintf "%03o", $st[2]), -3);
-#  print $p, "\n";
+  my @st = stat $yaml;
+  my $p = substr((sprintf "%03o", $st[2]), -3);
+  if ( $p != 600) {
+	chmod( 0600, $yaml);
+  }
+  #  print $p, "\n";
   &conf_set;
-#  print $ID, "\n";
-#  print $pass, "\n";
-#  &add_schedule;
+  #  print $ID, "\n";
+  #  print $pass, "\n";
+  #  &add_schedule;
 } else {
   print "設定ファイルがありません\n";
   &input_password;
