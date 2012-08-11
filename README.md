@@ -39,4 +39,18 @@ post-gcalendar
 　定型作業などに組合せてお使いください。
 
 
+
+###必要なモジュール
+
+　ubuntu だと Net::Google::Calendar だけCPANから取得してこないとダメかも。
+(先にapt-getしてからcpanした方がいいかも)  
+　他はリポジトリにありますので、
+
+    ~$ sudo apt-get install libcrypt-simple-perl libyaml-perl libpath-class-perl libfile-homedir-perl libterm-readkey-perl 
+
+でいけます。
+
+
+
+
 ライセンスはGPLv3とします。
