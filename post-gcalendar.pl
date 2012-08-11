@@ -1,5 +1,5 @@
 #!/usr/bin/perl
-# last updated : 2012/08/11 13:49:53 JST
+# last updated : 2012/08/11 14:44:33 JST
 #
 # google calendar にログをポストするスクリプト。
 #
@@ -13,9 +13,6 @@ use Pod::Usage 'pod2usage';
 use Path::Class;
 eval ("use File::HomeDir;"); die "[err] File::HomeDir module is Not Install.\n" if $@;
 use Term::ReadKey;
-use utf8;
-
-binmode STDOUT, ":utf8";
 
 my $conf_file = ".google.yml";
 my $ID;
