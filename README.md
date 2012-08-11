@@ -21,15 +21,15 @@ post-gcalendar
 
 ###例
 
-`Calendar : Backup
-Title : /home Backup完了
-Contents : /home のフルバックアップが完了しました。`
+`Calendar : Backup  
+Title : /home Backup完了  
+Contents : /home のフルバックアップが完了しました。`  
 
-　Calendar は Google Calendar の名前を指定します。
-　Title はカレンダーの見出しです。  
-　Contents は詳細な説明文を記入します。
+　_Calendar_ は Google Calendar の名前を指定します。  
+　_Title_ はカレンダーの見出しです。  
+　_Contents_ は詳細な説明文を記入します。
 
-　適当な名前を付けて保存しましたら、--config オプションで定型文ファイルを指定して実行します。
+　適当な名前を付けて保存しましたら、_--config_ オプションで定型文ファイルを指定して実行します。
 
 ###例
 
