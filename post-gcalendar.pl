@@ -1,5 +1,5 @@
 #!/usr/bin/perl
-# last updated : 2012/08/11 13:48:59 JST
+# last updated : 2012/08/11 13:49:53 JST
 #
 # google calendar にログをポストするスクリプト。
 #
@@ -138,8 +138,7 @@ post-gcalendar - POST schedule to Google Calendar
 =head1 SYNOPSIS
 
   $ post-gcalendar -config [template YAML file]
-  $ post-gcalendar --calendar "" --title "" 
-                     --contents "" --status ""
+  $ post-gcalendar --calendar "" --title "" --contents ""
 
 =cut
 
