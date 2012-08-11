@@ -25,9 +25,9 @@ post-gcalendar
     Title : /home Backup完了
     Contents : /home のフルバックアップが完了しました。
 
-　_Calendar_ は Google Calendar の名前を指定します。  
-　_Title_ はカレンダーの見出しです。  
-　_Contents_ は詳細な説明文を記入します。
+　**Calendar** は Google Calendar の名前を指定します。  
+　**Title** はカレンダーの見出しです。  
+　**Contents** は詳細な説明文を記入します。
 
 　適当な名前を付けて保存しましたら、_--config_ オプションで定型文ファイルを指定して実行します。
 
@@ -42,7 +42,7 @@ post-gcalendar
 
 ###必要なモジュール
 
-　ubuntu だと Net::Google::Calendar だけCPANから取得してこないとダメかも。
+　ubuntu だと *Net::Google::Calendar* だけ CPAN から取得してこないとダメかも。
 (先にapt-getしてからcpanした方がいいかも)  
 　他はリポジトリにありますので、
 
