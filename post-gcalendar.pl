@@ -1,5 +1,5 @@
 #!/usr/bin/perl
-# last updated : 2012/08/10 16:42:04 JST
+# last updated : 2012/08/11 13:48:59 JST
 #
 # google calendar にログをポストするスクリプト。
 #
@@ -23,20 +23,18 @@ my $pass;
 my $Calendar_name;
 my $g_title;
 my $g_contents;
-my $g_status;
 my $conf_name;
 
 GetOptions(
 		   'calendar=s'	=> \$Calendar_name,
 		   'title=s'	=> \$g_title,
 		   'contents=s' => \$g_contents,
-		   'status=s'	=> \$g_status,
 		   'config=s'   => \$conf_name,
 		  );
 
 # set account.
 my $yaml = file(File::HomeDir->my_home, $conf_file);
-print $yaml, "\n";
+
 if (-e $yaml) {
   my @st = stat $yaml;
   my $p = substr((sprintf "%03o", $st[2]), -3);
@@ -61,12 +59,7 @@ if ($conf_name) { # 定型ファイルから読み込み。。
 } elsif ($Calendar_name) {
   if ($g_title) {
 	if ($g_contents) {
-	  if ($g_status) {
-		&add_schedule;
-	  } else {
-		print "Not Status.\n";
-		exit;
-	  }
+	  &add_schedule;
 	} else {
 	  print "not contents.\n";
 	  exit;
@@ -108,7 +101,6 @@ sub read_schedule_file {
 	$Calendar_name = $cyaml->{Calendar};
 	$g_title	   = $cyaml->{Title};
 	$g_contents	   = $cyaml->{Contents};
-	$g_status	   = $cyaml->{status};
   } else {
 	print "Not Calendar FILE.\n";
 	exit;
@@ -131,7 +123,7 @@ sub add_schedule {
   my $entry = Net::Google::Calendar::Entry->new();
   $entry->title($g_title);
   $entry->content($g_contents);
-  $entry->status($g_status);
+  $entry->status('confirmed');
   $entry->when(DateTime->now, DateTime->now );
   print "\nsucceed.\n";
   $cal->add_entry($entry);
