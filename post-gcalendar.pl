@@ -1,5 +1,5 @@
 #!/usr/bin/perl
-# last updated : 2012/08/11 14:44:33 JST
+# last updated : 2012/08/11 14:53:41 JST
 #
 # google calendar にログをポストするスクリプト。
 #
@@ -10,7 +10,7 @@ eval ("use Crypt::Simple passphrase => 'pass phrase';"); die "[err] Crypt::Simpl
 eval ("use YAML;"); die "[err] YAML module is Not Install.\n" if $@;
 use Getopt::Long;
 use Pod::Usage 'pod2usage';
-use Path::Class;
+eval ("use Path::Class;"); die "[err] use Path::Class; module is Not Install.\n" if $@;
 eval ("use File::HomeDir;"); die "[err] File::HomeDir module is Not Install.\n" if $@;
 use Term::ReadKey;
 
