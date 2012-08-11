@@ -21,9 +21,9 @@ post-gcalendar
 
 ###例
 
-`Calendar : Backup  
-Title : /home Backup完了  
-Contents : /home のフルバックアップが完了しました。`  
+    Calendar : Backup
+    Title : /home Backup完了
+    Contents : /home のフルバックアップが完了しました。
 
 　_Calendar_ は Google Calendar の名前を指定します。  
 　_Title_ はカレンダーの見出しです。  
