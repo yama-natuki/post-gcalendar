@@ -1,5 +1,5 @@
 #!/usr/bin/perl
-# last updated : 2012/08/11 14:53:41 JST
+# last updated : 2012/08/11 15:41:52 JST
 #
 # google calendar にログをポストするスクリプト。
 #
@@ -94,7 +94,7 @@ sub conf_set {
 sub read_schedule_file {
   my $conf_file = file($conf_name);
   if ( -e $conf_file) {
-	my $cyaml = YAML::LoadFile($conf_file) or die "$yaml: $!";
+	my $cyaml = YAML::LoadFile($conf_file) or die "$conf_name: $!";
 	$Calendar_name = $cyaml->{Calendar};
 	$g_title	   = $cyaml->{Title};
 	$g_contents	   = $cyaml->{Contents};
