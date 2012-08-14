@@ -1,5 +1,5 @@
 #!/usr/bin/perl
-# last updated : 2012/08/14 23:05:06 JST
+# last updated : 2012/08/14 23:06:13 JST
 #
 # google calendar にログをポストするスクリプト。
 #
@@ -11,7 +11,8 @@ use YAML;
 use Getopt::Long;
 use Pod::Usage 'pod2usage';
 use Path::Class;
-use File::HomeDir;use Term::ReadKey;
+use File::HomeDir;
+use Term::ReadKey;
 
 my $conf_file = ".google.yml";
 my $ID;
