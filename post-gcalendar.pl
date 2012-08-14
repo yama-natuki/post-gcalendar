@@ -1,18 +1,17 @@
 #!/usr/bin/perl
-# last updated : 2012/08/11 15:41:52 JST
+# last updated : 2012/08/14 23:05:06 JST
 #
 # google calendar にログをポストするスクリプト。
 #
 
 use strict;
-eval ("use Net::Google::Calendar"); die "[err] Net::Google::Calendar is Not Install.\n" if $@;
-eval ("use Crypt::Simple passphrase => 'pass phrase';"); die "[err] Crypt::Simple is Not Install.\n" if $@;
-eval ("use YAML;"); die "[err] YAML module is Not Install.\n" if $@;
+use Net::Google::Calendar;
+use Crypt::Simple passphrase => 'pass phrase';
+use YAML;
 use Getopt::Long;
 use Pod::Usage 'pod2usage';
-eval ("use Path::Class;"); die "[err] use Path::Class; module is Not Install.\n" if $@;
-eval ("use File::HomeDir;"); die "[err] File::HomeDir module is Not Install.\n" if $@;
-use Term::ReadKey;
+use Path::Class;
+use File::HomeDir;use Term::ReadKey;
 
 my $conf_file = ".google.yml";
 my $ID;
